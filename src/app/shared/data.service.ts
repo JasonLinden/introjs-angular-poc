@@ -3,7 +3,7 @@ import { Subject } from "rxjs";
 
 @Injectable()
 export class DataService {
-  private aweSource = new Subject<string>();
+  private aweSource = new Subject<any>();
   aweSource$ = this.aweSource.asObservable();
 
   private message: string;
@@ -14,7 +14,7 @@ export class DataService {
     return "Angular Bare Bones";
   }
 
-  sendMessage(message: string) {
+  sendMessage(message: any) {
     this.aweSource.next(message);
   }
 }
