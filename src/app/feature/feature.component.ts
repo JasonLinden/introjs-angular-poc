@@ -17,6 +17,7 @@ export class FeatureComponent implements OnInit {
     private _dataService: DataService
   ) {}
 
+  // Unsubscribe when comeplete
   ngOnInit() {
     this._dataService.aweSource$.subscribe(data => {
       if (data) {
