@@ -17,34 +17,78 @@ export class HomeComponent implements OnInit {
 
   startIntro() {
     this.dataService.sendMessage({
-      steps: [
-        {
-          intro: "Hello world!"
-        },
-        {
-          element: document.querySelector("#step1"),
-          intro: "This is a tooltip."
-        },
-        {
-          element: document.querySelectorAll("#step2")[0],
-          intro: "Ok, wasn't that fun?",
-          position: "right"
-        },
-        {
-          element: "#step3",
-          intro: "More features, more fun.",
-          position: "left"
-        },
-        {
-          element: "#step4",
-          intro: "Another step.",
-          position: "bottom"
-        },
-        {
-          element: "#step5",
-          intro: "Get it, use it."
-        }
-      ]
+      options: {
+        steps: [
+          {
+            intro: "Hello world!"
+          },
+          {
+            element: document.querySelector("#step1"),
+            intro: "This is a tooltip."
+          },
+          {
+            element: document.querySelectorAll("#step2")[0],
+            intro: "Ok, wasn't that fun?",
+            position: "right"
+          },
+          {
+            element: "#step3",
+            intro: "More features, more fun.",
+            position: "left"
+          },
+          {
+            element: "#step4",
+            intro: "Another step.",
+            position: "bottom"
+          },
+          {
+            element: "#step5",
+            intro: "Get it, use it."
+          }
+        ]
+      },
+      multi: null
+    });
+  }
+
+  // configs can be stored in constants file - create a tree structure for multiple pages
+  startMulti() {
+    this.dataService.sendMessage({
+      options: {
+        steps: [
+          {
+            intro: "Hello world!"
+          },
+          {
+            element: document.querySelector("#step1"),
+            intro: "This is a tooltip."
+          },
+          {
+            element: document.querySelectorAll("#step2")[0],
+            intro: "Ok, wasn't that fun?",
+            position: "right"
+          },
+          {
+            element: "#step3",
+            intro: "More features, more fun.",
+            position: "left"
+          },
+          {
+            element: "#step4",
+            intro: "Another step.",
+            position: "bottom"
+          },
+          {
+            element: "#step5",
+            intro: "Get it, use it."
+          }
+        ],
+        doneLabel: "Awe Done bru"
+      },
+      multi: {
+        navigate: "page-two",
+        params: 12
+      }
     });
   }
 }
